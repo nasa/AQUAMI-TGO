@@ -3,6 +3,5 @@ matplotlib
 pandas
 tk
 scikit-image
-scikit-learn
 segmentation-models-pytorch==0.2.1
 openpyxl
