@@ -61,7 +61,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 __author__ = "Joshua Stuckner"
-__version__ = '0.4'
+__version__ = '1.0'
 
 import matplotlib as mpl
 mpl.rcParams['savefig.dpi'] = 300
@@ -534,7 +534,7 @@ class Aquami_Gui(tk.Frame):
         # self.thread_model_load.start()
 
         tk.Frame.__init__(self, master)
-        self.master.title('Aquami - Oxide Layer Analysis (v' + __version__ + ')')
+        self.master.title('Aquami-TGO (v' + __version__ + ')')
         module_path, this_filename = os.path.split(__file__)
         try:
             self.master.iconbitmap(''.join((module_path, 'aqua.ico')))

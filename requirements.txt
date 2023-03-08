@@ -4,6 +4,5 @@ pandas
 tk
 scikit-image
 scikit-learn
-pytorch
-segmentation-models-pytorch
+segmentation-models-pytorch==0.2.1
 openpyxl
