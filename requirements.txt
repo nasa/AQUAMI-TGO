@@ -1,0 +1,9 @@
+numpy
+matplotlib
+pandas
+tk
+scikit-image
+scikit-learn
+pytorch
+segmentation-models-pytorch
+openpyxl

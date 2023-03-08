@@ -1,0 +1,2 @@
+The length of ligaments and pores between branching.
+I.e. the node to node length (where a node is the place two chords connect).

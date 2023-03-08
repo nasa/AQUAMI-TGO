@@ -1,0 +1,2 @@
+Select this to manually measure the scale bar and SEM area in the first image only.
+All subsequent images will use the same measurements.

@@ -1,0 +1,3 @@
+Outputs all measurements to an excel file in the 
+output folder.  These measurements can then be 
+used for a more in depth statistical analysis.

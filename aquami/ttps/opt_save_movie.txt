@@ -1,0 +1,2 @@
+Saves a movie to visualize the segmentation results.
+This can be used to confirm that segmentation was accurate.

@@ -1,0 +1,1 @@
+Sets the output folder to export the excel and pdf files.

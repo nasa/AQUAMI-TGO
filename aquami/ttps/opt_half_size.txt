@@ -1,0 +1,3 @@
+Reduce the resolution by 2. Segmentation works best on
+~1k x 1k images. Select this if you have higher resolution
+images and aren't getting good segmentation results.

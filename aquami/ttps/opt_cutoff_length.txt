@@ -1,0 +1,4 @@
+The cutoff length of the gaussian filter used to extract
+the waviness profile. A full cutoff length will be removed
+from each side of the profile for roughness evaluation.
+Units are the same as the pixel size units.

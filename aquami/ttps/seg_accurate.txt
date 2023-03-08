@@ -1,0 +1,2 @@
+Uses 2D Otsu's method to segment the micrograph.
+Use when there are illumination changes across the micrograph.

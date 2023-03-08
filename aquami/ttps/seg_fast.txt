@@ -1,0 +1,4 @@
+Uses Otsu's method to segment the micrograph.
+This is much faster than 2D Otsu's method, but
+may produce poor segmentation if there are illumination
+changes across the image.

@@ -1,0 +1,2 @@
+Check to automatically crop the scale bar from the image.
+This requires that the SEM data is square and the meta data is below the image data.

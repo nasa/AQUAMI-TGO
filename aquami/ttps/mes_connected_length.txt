@@ -1,0 +1,2 @@
+The sum of the lengths of ligaments in each enclosed feature.
+Only calculated for the phase without in-plane connectivity.

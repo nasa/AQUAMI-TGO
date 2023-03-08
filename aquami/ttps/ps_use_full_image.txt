@@ -1,0 +1,1 @@
+Check if the scale bar and meta data has already been cropped externally.

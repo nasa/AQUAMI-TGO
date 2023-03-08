@@ -1,0 +1,2 @@
+The area of each enclosed feature in the
+phase without in-plane connectivity.

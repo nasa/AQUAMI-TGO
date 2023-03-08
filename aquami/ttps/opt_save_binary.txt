@@ -1,0 +1,4 @@
+Saves the results of segmentation as two binary masks
+for the bright and dark phases.  These masks can be
+loaded using the 'From binary' segmentation method to
+skip recalculating them.

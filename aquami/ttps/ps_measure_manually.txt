@@ -1,0 +1,1 @@
+Measure the scale bar and select the SEM area manually.

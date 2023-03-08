@@ -1,0 +1,2 @@
+Diameter of the ligaments (or pores) in each phase.
+A measurement is taken at every pixel along the skeletal backbone.

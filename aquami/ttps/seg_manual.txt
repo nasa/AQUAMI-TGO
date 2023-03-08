@@ -1,0 +1,2 @@
+Use a built in interface to manually select the
+segmentation threshold.

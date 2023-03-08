@@ -1,0 +1,3 @@
+Loads binary segmentation masks for measurement.
+These masks can be generated using the 'Save binary'
+function or from an outside software.
