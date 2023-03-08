@@ -1,8 +1,8 @@
 # AQUAMI-TGO
 Automatic Image Analysis of Environmental Barrier Coating Oxide Layers using Machine Learning and Computer Vision
-<br><br>
+<br>
 #### Built on technology from MicroNet ([paper](https://www.nature.com/articles/s41524-022-00878-5), [repo](https://github.com/nasa/pretrained-microscopy-models)) and AQUAMI ([paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025617304184), [repo](https://github.com/JStuckner/aquami)). If you find this code useful in your research, citing these papers would be greatly appreciated!
-<br><br>
+<br>
 
 ## Description
 Uses machine learning and computer vision to automatically measure microstructure features from images of environmental barrier coatings. Quantifying microstructure is critical to designing better materials by establishing processing-structure-property relationships. Previous measurement techniques relied on manual human measurements which is extremely time consuming, prone to bias, and requires expertise. This software can automatically and accurately measure oxide thickness, roughness, porosity, and crack spacing in a matter of seconds and the results are repeatable and comparable between research groups. The open source GUI and algorithms can
