@@ -901,9 +901,9 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         except ZeroDivisionError:
             porosity = 0
 
-        if pdf is not None:
-            inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
-                                 title='Porosity = %0.3f, threshold = %.0f (otsu)' % (porosity, otsu_thresh))
+        # if pdf is not None:
+        #     inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
+        #                          title='Porosity = %0.3f, threshold = %.0f (otsu)' % (porosity, otsu_thresh))
 
         # Otsu's 1.1 thresh
         otsu_thresh = int(round(otsu_thresh))
@@ -921,9 +921,9 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         except ZeroDivisionError:
             porosity = 0
 
-        if pdf is not None:
-            inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
-                                 title='Porosity = %0.3f, threshold = %.0f (otsu*1.1)' % (porosity, otsu_thresh_1_2))
+        # if pdf is not None:
+        #     inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
+        #                          title='Porosity = %0.3f, threshold = %.0f (otsu*1.1)' % (porosity, otsu_thresh_1_2))
 
         # 70% thresh
         pores = (im_smooth < thresh) * eroded_mask
@@ -934,6 +934,7 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         pores_minus_crack[cracks_to_remove == 1] = 0
         pores_minus_crack = segment.removeSmallObjects(pores_minus_crack, 10, 200)
 
+        ## this appears to be the final one.
         try:
             porosity = np.count_nonzero(pores_minus_crack) / np.count_nonzero(eroded_mask)
         except ZeroDivisionError:
@@ -959,9 +960,9 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         except ZeroDivisionError:
             porosity_80 = 0
 
-        if pdf is not None:
-            inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
-                                 title='Porosity = %0.3f, threshold = %.0f (80)' % (porosity_80, thresh_80))
+        # if pdf is not None:
+        #     inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
+        #                          title='Porosity = %0.3f, threshold = %.0f (80)' % (porosity_80, thresh_80))
 
         # 90% thresh
         pores = (im_smooth < thresh_90) * eroded_mask
@@ -977,9 +978,9 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         except ZeroDivisionError:
             porosity_90 = 0
 
-        if pdf is not None:
-            inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
-                                 title='Porosity = %0.3f, threshold = %.0f (90)' % (porosity_90, thresh_90))
+        # if pdf is not None:
+        #     inout.pdfSaveOverlay(pdf, im, pores_minus_crack,
+        #                          title='Porosity = %0.3f, threshold = %.0f (90)' % (porosity_90, thresh_90))
 
 
         if pdf is not None:  # plot peaks
