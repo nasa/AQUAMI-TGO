@@ -1,7 +1,7 @@
 # AQUAMI-TGO
-Automatic Image Analysis of Environmental Barrier Coating Oxide Layers using Machine Learning and Computer Vision
+Automatic QUAntification of Microscopy Images - Thermally Grown Oxide
 <br>
-#### Built on technology from MicroNet ([paper](https://www.nature.com/articles/s41524-022-00878-5), [repo](https://github.com/nasa/pretrained-microscopy-models)) and AQUAMI ([paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025617304184), [repo](https://github.com/JStuckner/aquami)). If you find this code useful in your research, citing these papers would be greatly appreciated!
+#### Built on technology from MicroNet ([paper](https://www.nature.com/articles/s41524-022-00878-5), [repo](https://github.com/nasa/pretrained-microscopy-models)) and AQUAMI ([paper](https://www.sciencedirect.com/science/article/abs/pii/S0927025617304184), [repo](https://github.com/JStuckner/aquami)). If you find this code useful in your research, please consider citing these sources.
 <br>
 
 ## Description
