@@ -1,0 +1,3 @@
+Max pixel size of detected oxide clusters to remove.
+Decrease if removing chunks of oxide layer.
+Increase if large sprurious blobs are detected.

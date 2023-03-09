@@ -644,8 +644,9 @@ class Measured_Micrograph():
 
 
 class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
-    def __init__(self, cutoff_wl, *args, **kwargs):
+    def __init__(self, cutoff_wl, remove_small, *args, **kwargs):
         self.cutoff_wl = cutoff_wl
+        self.remove_small = remove_small
         super().__init__(*args, **kwargs)
         #super(Measured_Precipitate_Micrograph, self).__init__(*args, **kwargs)
 
@@ -658,7 +659,7 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         mult = 1 if self.rows < 1200 else 2
         self.thickness_mask = None
         #self.thickness_mask = self.clean_oxide(self.mask, 100, 2500, 'Cleaned mask for thickness meas.').copy()
-        self.mask = self.clean_oxide(self.mask, 2500*mult, 2500*mult) # was 2500*mult, 2500*mult
+        self.mask = self.clean_oxide(self.mask, self.remove_small, 2500*mult) # was 2500*mult, 2500*mult
         self.thickness_mask = self.mask if self.thickness_mask is None else self.thickness_mask
         if self.save_segment: self.save_binary()
         self.selected_area=inout.uint8(self.selected_area)

@@ -612,18 +612,23 @@ class Aquami_Gui(tk.Frame):
         # Options.
         # Variables.
         self.varCutoffWaveLength = tk.StringVar(value='10')
+        self.varRemoveObjectSize = tk.StringVar(value='2500')
 
         # Create widgets.
         self.buttonSelectOutFold = tk.Button(self.frameOptions, text='Set Output Folder',
                                              command=self.setOutputFolder)
         self.textCutoffWaveLength = tk.Entry(self.frameOptions, textvariable=self.varCutoffWaveLength, width=5)
         self.labelCutoffWaveLength = tk.Label(self.frameOptions, text='Cutoff Length (unit):')
+        self.textRemoveObjectSize = tk.Entry(self.frameOptions, textvariable=self.varRemoveObjectSize, width=5)
+        self.labelRemoveObjectSize = tk.Label(self.frameOptions, text='Remove oxide smaller than:')
 
         # Pack widgets.
 
         self.buttonSelectOutFold.grid(row=1, column=0, columnspan=2, sticky='w', padx=5, pady=10)
         self.labelCutoffWaveLength.grid(row=2, column=0, sticky='w', padx=5, pady=5)
         self.textCutoffWaveLength.grid(row=2, column=1, sticky='w', padx=5, pady=5)
+        self.labelRemoveObjectSize.grid(row=3, column=0, sticky='w', padx=5, pady=5)
+        self.textRemoveObjectSize.grid(row=3, column=1, sticky='w', padx=5, pady=5)
 
         # Pixel size options.
         # Variables.
@@ -756,6 +761,8 @@ class Aquami_Gui(tk.Frame):
             [self.checkUseFullImage, 'ps_use_full_image.txt'],
             [self.textCutoffWaveLength, 'opt_cutoff_length.txt'],
             [self.labelCutoffWaveLength, 'opt_cutoff_length.txt'],
+            [self.textRemoveObjectSize, 'opt_remove_small.txt'],
+            [self.labelRemoveObjectSize, 'opt_remove_small.txt'],
             [self.checkHalfSize, 'opt_half_size.txt']
         ]
 
@@ -869,6 +876,10 @@ class Aquami_Gui(tk.Frame):
             cutoff_wl = float(self.varCutoffWaveLength.get())
         else:
             return 0
+        if user_input_good(self.varRemoveObjectSize.get(), 'float', boxName='Remove Small Oxide'):
+            remove_small = float(self.varRemoveObjectSize.get())
+        else:
+            return 0
 
         # get pixel size
         pixel_size = 1
@@ -957,7 +968,8 @@ class Aquami_Gui(tk.Frame):
                     output_excel=False,
                     save_pdf=self.varSavePDF.get(),
                     phase_names=['background', 'oxide', 'crack'],
-                    cutoff_wl=cutoff_wl
+                    cutoff_wl=cutoff_wl,
+                    remove_small=remove_small
                 )
             #m.calculate()
             all_features.append(m.features)
