@@ -14,7 +14,10 @@ Thermally grown oxide layers and oxide cracks are segmented with a convolutional
 ## Installation
 1. Download this repository.
 1. Install [PyTorch](https://pytorch.org/) to a python virtual environment. This is made easy with [Light-the-torch](https://github.com/pmeier/light-the-torch).
-2. Navigate to the AQUAMI-TGO folder inside a terminal and install install the dependencies with:
+<br> - Windows users:
+ <br> &emsp;i. `python -m pip install light-the-torch`
+ <br> &emsp;ii. `ltt install torch`
+1. Navigate to the AQUAMI-TGO folder inside a terminal and install install the dependencies with:
 `pip install -r requirements.txt`
 1. Download the [segmentation model](https://drive.google.com/uc?export=download&id=1RxzGigTpJQ-k9kYBtc-JYjb6M2z9vbpp) and place it in the aquami/models/ folder.
 

@@ -280,7 +280,10 @@ def overlay_mask(image, mask, colors=['o', 'b', 'r'], return_overlay=False, anim
                 figManager.window.state('zoomed')
             plt.gca().set_position([0, 0, 1, 0.95])
             plt.title(title)
-            fig.canvas.set_window_title('Animated Mask Overlay')
+            try:
+                fig.canvas.set_window_title('Animated Mask Overlay')
+            except AttributeError:
+                pass
             #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
             plt.show()
             while plt.get_fignums():
