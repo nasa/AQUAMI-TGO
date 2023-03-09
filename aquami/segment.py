@@ -34,7 +34,11 @@ def divide_batch(l, n):
 
 def load_pytorch_model(path, encoder, returned_model=[None], returned_preprocessing_fn=[None]):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = torch.load(path, map_location=device)
+    try:
+        model = torch.load(path, map_location=device)
+    except FileNotFoundError:
+        path = 'aquami\\' + path
+        model = torch.load(path, map_location=device)
     model.eval()
     encoder_weights = 'imagenet'
     preprocessing_fn = smp.encoders.get_preprocessing_fn(encoder, encoder_weights)
@@ -407,25 +411,3 @@ def manualSegment(image):
     mask = p.getMask()
 
     return mask
-
-
-if __name__ == '__main__':
-    import imageio
-    import joblib
-    folder = r'\\Tera02\ASG\Users\Scannapieco, David\GRCop42&84\ISGRCop\Build 10\10AP-Robomet'
-    DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = torch.load(r'.\models\GRCop_best_model.pth', map_location=DEVICE)
-    model.eval()
-    ENCODER = 'efficientnet-b3'
-    ENCODER_WEIGHTS = 'imagenet'
-    CLASSES = ['matrix', 'precipitate', 'pore']
-    preprocessing_fn = smp.encoders.get_preprocessing_fn(ENCODER, ENCODER_WEIGHTS)
-
-    for f in inout.files_in_folder(folder, 'bmp')[18:]:
-        print(f)
-        im = imageio.imread(f)
-        print('    image loaded')
-        im = im[:,:,:3] if im.shape[2] == 4 else im # remove alpha
-        mask = segmentation_models_inference(im, model, preprocessing_fn)
-        print('    image segmented')
-        joblib.dump(mask, f.replace('.bmp', '_mask.seg'), compress = 3)

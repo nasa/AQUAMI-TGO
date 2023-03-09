@@ -714,11 +714,6 @@ class Aquami_Gui(tk.Frame):
         self.updateOptions()
         self.createToolTips()
     def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.980__20230301.pth', encoder='inceptionresnetv2'):
-    #def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.978__20221129.pth', encoder='inceptionresnetv2'):
-    #def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.981__20220711.pth', encoder='inceptionresnetv2'):
-    #def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.980__20220623.pth', encoder='inceptionresnetv2'):
-    #def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.983__20110913.pth', encoder='inceptionresnetv2'):
-    #def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.976__20211103.pth', encoder='inceptionresnetv2'):
     
         # if a previous load thread is running, wait for it to finish
         try:
