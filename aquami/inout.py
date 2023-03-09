@@ -342,12 +342,6 @@ def pdfSaveSkel(pdf, skeleton, mask, dialate=False, title=None, cmap=None):
         plt.imshow(skel, cmap=plt.cm.spectral, interpolation='none')
     except:
         plt.imshow(skel, cmap=plt.cm.nipy_spectral, interpolation='none')
-    plt.axis('off')
-    figManager = plt.get_current_fig_manager()
-    try:
-        figManager.window.showMaximized()
-    except AttributeError:  # TkAgg backend
-        figManager.window.state('zoomed')
     if title is None:
         plt.gca().set_position([0, 0, 1, 1])
     else:
