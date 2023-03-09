@@ -45,7 +45,7 @@ def show_full(img, title=None, cmap=None, interpolation='none'):
     else:
         plt.gca().set_position([0, 0, 1, 0.95])
         plt.title(title)
-    plt.ion()
+    #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
     plt.show()
     while plt.get_fignums():
         try:
@@ -157,7 +157,7 @@ def overlay_mask_single(image, mask, color='o', return_overlay=False, animate=Fa
             plt.gca().set_position([0, 0, 1, 0.95])
             plt.title(title)
             fig.canvas.set_window_title('Animated Mask Overlay')
-            plt.ion()
+            #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
             plt.show()
             while plt.get_fignums():
                 try:
@@ -281,7 +281,7 @@ def overlay_mask(image, mask, colors=['o', 'b', 'r'], return_overlay=False, anim
             plt.gca().set_position([0, 0, 1, 0.95])
             plt.title(title)
             fig.canvas.set_window_title('Animated Mask Overlay')
-            plt.ion()
+            #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
             plt.show()
             while plt.get_fignums():
                 try:
@@ -359,7 +359,7 @@ def show_skel(skeleton, mask, dialate=False, title=None, returnSkel=False,
     else:
         plt.gca().set_position([0, 0, 1, 0.95])
         plt.title(title)
-    plt.ion()
+    #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
     plt.show()
     while plt.get_fignums():
         try:
@@ -432,7 +432,7 @@ def show_hist(data, title=None, xlabel=None,
     ax.yaxis.set_visible(False)
     if gauss or log:
         plt.legend()
-    plt.ion()
+    #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
     plt.show()
     while plt.get_fignums():
         try:

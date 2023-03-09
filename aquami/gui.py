@@ -188,7 +188,7 @@ class manualThreshhold(object):
         self.fig.canvas.draw_idle()
 
     def show(self):
-        plt.ion()
+        #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
         plt.show()
         while plt.get_fignums():
             try:
@@ -278,7 +278,7 @@ def manualPixelSize(scale):
         figManager.window.state('zoomed')
     a = selectRect()
     plt.axis('off')
-    plt.ion()
+    #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
     plt.show()
     while plt.get_fignums():
         try:
@@ -289,7 +289,10 @@ def manualPixelSize(scale):
     barSize = abs(a.x1-a.x0)
     scaleNum = 0
     root = tk.Toplevel()
-    root.iconbitmap('aqua.ico')
+    try:
+        root.iconbitmap('aqua.ico')
+    except tk.TclError:
+        root.iconbitmap('aquami\\aqua.ico')
     pixapp = inputScale(root, scale=scale)
     scaleNum = pixapp.result
     root.destroy()
@@ -339,7 +342,7 @@ def manualSelectImage(img, set_scale=True, return_crop_area=False):
         
     a = selectRect()
     plt.axis('off')
-    plt.ion()
+    #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
     plt.show()
     while plt.get_fignums():
         try:
@@ -374,7 +377,7 @@ def manualSelectImage(img, set_scale=True, return_crop_area=False):
 
         a = selectRect()
         plt.axis('off')
-        plt.ion()
+        #plt.ion() Removed 3/9/23 to stop code from hanging when closing figure.
         plt.show()
         while plt.get_fignums():
             try:
