@@ -921,6 +921,13 @@ class Aquami_Gui(tk.Frame):
             df.to_excel(writer, header=False, index=False, sheet_name='Summary')
             try:
                 writer.save()
+            except AttributeError:
+                try:
+                    writer.close()
+                except PermissionError:
+                    tk.messagebox.showwarning('AQUAMI Warning',
+                                              'File is in use by another program.\nPlease close file and try again.')
+                    return 0
             except PermissionError:
                 tk.messagebox.showwarning('AQUAMI Warning',
                                           'File is in use by another program.\nPlease close file and try again.')
