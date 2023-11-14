@@ -1009,11 +1009,15 @@ class Aquami_Gui(tk.Frame):
                 df.to_excel(writer, header=False, index=False, sheet_name='Summary')
                 try:
                     writer.save()
+                except AttributeError:
+                    writer.close()
                 except PermissionError:
                     tk.messagebox.showwarning('AQUAMI Warning',
                                               'File is in use by another program.\nPlease close file and press "OK".\n(Existing file will be overwritten)')
                     try:
                         writer.save()
+                    except AttributeError:
+                        writer.close()
                     except PermissionError:
                         tk.messagebox.showerror('AQUAMI Error',
                                                 'File is in use by another program.\nRESULTS FILE NOT SAVED!')
@@ -1054,11 +1058,15 @@ class Aquami_Gui(tk.Frame):
 
                 try:
                     writer.save()
+                except AttributeError:
+                    writer.close()
                 except PermissionError:
                     tk.messagebox.showwarning('AQUAMI Warning',
                                             'File is in use by another program.\nPlease close file and press "OK".\n(Existing file will be overwritten)')
                     try:
                         writer.save()
+                    except AttributeError:
+                        writer.close()
                     except PermissionError:
                         tk.messagebox.showerror('AQUAMI Error',
                                                 'File is in use by another program.\nRESULTS FILE NOT SAVED!')
