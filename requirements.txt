@@ -1,7 +1,9 @@
-numpy
-matplotlib
-pandas
-tk
-scikit-image
+# Newest library versions don't work. Here is what works for me.
+# python==3.7.9
+numpy==1.19.1
+matplotlib==3.5.3
+pandas==1.1.1
+tk==8.6.10
+scikit-image==0.16.2
 segmentation-models-pytorch==0.2.1
-openpyxl
+openpyxl==3.0.5
