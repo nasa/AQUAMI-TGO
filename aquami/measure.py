@@ -650,10 +650,21 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
         super().__init__(*args, **kwargs)
         #super(Measured_Precipitate_Micrograph, self).__init__(*args, **kwargs)
 
+    def blur_and_increase_brightness(self, im):
+    # Apply Gaussian blur
+        blurred_image = gaussian(im, sigma=2, mode='nearest')
+
+        # Increase brightness by scaling pixel values (clipping at 1.0 for float images)
+        brighter_image = np.clip(blurred_image * 1.5, 0, 1)
+
+        return brighter_image
+
+
     def calculate(self):
 
         self.load_micrograph()
         self.selected_area = inout.uint8(self.selected_area)
+        #self.selected_area = self.blur_and_increase_brightness(self.selected_area)
         if self.save_pdf: self.prep_pdf()
         self.segment()
         mult = 1 if self.rows < 1200 else 2
