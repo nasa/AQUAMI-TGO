@@ -478,7 +478,8 @@ class Measured_Micrograph():
 
         # Return 0 if the file does not exist.
         if os.path.isfile(path):
-            self.raw_micrograph = inout.load(path, convert_to_uint8=True)
+            self.raw_micrograph = inout.load(path, convert_to_uint8=False)
+            self.raw_micrograph = inout.uint8(self.raw_micrograph)
             if self.show_steps: visualize.show_full(self.raw_micrograph, title='Loaded micrograph.')
             self.micrograph_fname = Path(path).stem
             if self.gui is not None:
@@ -514,12 +515,15 @@ class Measured_Micrograph():
                 self.pixel_size = float(val)
 
             # Get image size
-            self.rows, self.cols = self.selected_area.shape
+            if self.selected_area.ndim == 2:
+                self.rows, self.cols = self.selected_area.shape
+            elif self.selected_area.ndim == 3:
+                self.rows, self.cols, _ = self.selected_area.shape
 
             # if should: make square
             if not self.segmentation_measure_scale_bar and self.segmentation_assume_square:
                 if self.rows > self.cols:
-                    self.selected_area = self.selected_area[:self.cols, :self.cols]
+                    self.selected_area = self.selected_area[:self.cols, :self.cols, ...]
                     self.rows, self.cols = self.selected_area.shape
 
             # if should: resize
@@ -550,7 +554,7 @@ class Measured_Micrograph():
                                              ''.join((self.micrograph_fname, '_Summary.pdf'))))
             
         cmap = None
-        if len(self.raw_micrograph.shape == 2):
+        if len(self.raw_micrograph.shape) == 2:
             cmap = plt.cm.gray
 
         inout.pdfSaveImage(self.pdf, self.raw_micrograph, title="Micrograph.", cmap=cmap)
@@ -825,6 +829,7 @@ class Measured_EBC_Oxide_Micrograph(Measured_Micrograph):
 
     def get_pores(self, im, mask, gaussian_radius=1, peak_prominence=500):
         self.gui.write_status("Measuring porosity...", end=' ')
+        im = rgb2gray(im) # gray scale for this
         t0 = time.time()
         pdf = self.pdf
         rows, cols = im.shape

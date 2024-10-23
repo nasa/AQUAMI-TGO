@@ -30,7 +30,7 @@ def show_full(img, title=None, cmap=None, interpolation='none'):
     """
 
     # Show grayscale if cmap not set and image is not color.
-    if cmap is None and img.ndim == 2:
+    if cmap is None and len(img.shape) == 2:
         cmap = plt.cm.gray
 
     plt.imshow(img, cmap=cmap, interpolation=interpolation)

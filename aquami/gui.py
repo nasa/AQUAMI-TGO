@@ -327,12 +327,15 @@ def manualSelectImage(img, set_scale=True, return_crop_area=False):
     # Get shape of image and convert to gray scale.
     try:
         rows, cols =  img.shape
-    except ValueError: # Convert to gray scale
-        img = rgb2gray(img)
-        rows, cols =  img.shape
+    except ValueError:
+        #img = rgb2gray(img)
+        rows, cols, _ =  img.shape
     
     # Select the image.
-    plt.imshow(img, cmap=plt.get_cmap('gray'))
+    cmap = None
+    if len(img.shape) == 2:
+        cmap = plt.cm.gray
+    plt.imshow(img, cmap=cmap)
     plt.title('Select the image data and close this figure.')
     figManager = plt.get_current_fig_manager()
     try:
@@ -366,7 +369,7 @@ def manualSelectImage(img, set_scale=True, return_crop_area=False):
     scale = 1
     if set_scale:
         # Select the scale bar.
-        plt.imshow(img, cmap=plt.get_cmap('gray'))
+        plt.imshow(img, cmap=cmap)
         plt.title('Draw a box around the scale bar and close this figure.' \
                   ' No need to be precise as long as the whole bar is included.')
         figManager = plt.get_current_fig_manager()
