@@ -548,8 +548,13 @@ class Measured_Micrograph():
         else:
             self.pdf = PdfPages(os.path.join(self.output_folder,
                                              ''.join((self.micrograph_fname, '_Summary.pdf'))))
-        inout.pdfSaveImage(self.pdf, self.raw_micrograph, title="Micrograph.", cmap=plt.cm.gray)
-        inout.pdfSaveImage(self.pdf, self.selected_area, title="Selected measurement area.", cmap=plt.cm.gray)
+            
+        cmap = None
+        if len(self.raw_micrograph.shape == 2):
+            cmap = plt.cm.gray
+
+        inout.pdfSaveImage(self.pdf, self.raw_micrograph, title="Micrograph.", cmap=cmap)
+        inout.pdfSaveImage(self.pdf, self.selected_area, title="Selected measurement area.", cmap=cmap)
 
     def save_pdf_do(self):
         # Create summary

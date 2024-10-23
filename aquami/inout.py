@@ -55,9 +55,11 @@ def create_folder(folder):
 
 def load(path, convert_to_uint8=True):
     img = imageio.imread(path)
-    if uint8:
+    #print("Loaded image of shape " + str(img.shape))
+    if convert_to_uint8:
         img = rgb2gray(img) if len(img.shape) == 3 else img
         img = uint8(img)
+    #print("Returning image of shape " + str(img.shape))
     return img
 
 def load_mask(path):
