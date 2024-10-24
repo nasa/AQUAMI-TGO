@@ -724,7 +724,7 @@ class Aquami_Gui(tk.Frame):
         self.checkSavePDF.select()
         self.updateOptions()
         self.createToolTips()
-    def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.980__20230301.pth', encoder='inceptionresnetv2'):
+    def load_model(self, path='models/Unet__inceptionresnetv2__acc__0.982__20241024.pth', encoder='inceptionresnetv2'):
     
         # if a previous load thread is running, wait for it to finish
         try:
