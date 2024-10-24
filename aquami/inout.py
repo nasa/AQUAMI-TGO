@@ -55,6 +55,13 @@ def create_folder(folder):
 
 def load(path, convert_to_uint8=True):
     img = imageio.imread(path)
+
+    # Drop the alpha channel if present
+    if img.ndim == 3:
+        if img.shape[2] == 4:
+            
+            img = img[:, :, :3]
+
     #print("Loaded image of shape " + str(img.shape))
     if convert_to_uint8:
         img = rgb2gray(img) if len(img.shape) == 3 else img
