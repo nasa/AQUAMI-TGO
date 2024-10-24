@@ -536,7 +536,8 @@ class Measured_Micrograph():
             if self.half_size:
                 self.selected_area = resize(self.selected_area, (int(round(self.rows/2)), int(round(self.cols/2))))
                 self.pixel_size = self.pixel_size * 2
-                self.rows, self.cols = self.selected_area.shape
+                self.rows, self.cols = self.selected_area.shape[:2]
+
 
 
             self.features.append(Feature(None, {'Pixel size': self.pixel_size}))
